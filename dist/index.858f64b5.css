@@ -1,0 +1,211 @@
+@import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap";
+:root {
+  --font-primary: "Poppins", sans-serif;
+  --color-lightBlue-btn-bg: #005db2;
+  --color-dark-btn-bg: #303136;
+  --color-gray-btn-Bg: #616161;
+  --color-lightBlue-btn-hover: #1991ff;
+  --color-black-text: #424242;
+  --color-lightBlue-text: #29a8ff;
+  --color-gray-text: #a5a5a5;
+  --color-white-text: #fff;
+  --color-text-number: #24a5ff;
+  --color-white-text-btn-hover: #fff;
+  --color-dark-bg: #17181a;
+  --color-white-bg: #f7f8fb;
+  --color-body-bg: #daf0ff;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-body-bg);
+  font-style: normal;
+  transition: all .4s;
+  overflow: hidden;
+}
+
+body.active {
+  background-color: var(--color-dark-bg);
+}
+
+.previous__calc {
+  color: var(--color-gray-text);
+  font-size: 2.4rem;
+  font-weight: 400;
+  line-height: 3.6rem;
+}
+
+.current__calc {
+  color: var(--color-white-text);
+  font-size: 4.8rem;
+  font-weight: 500;
+  line-height: 7.2rem;
+}
+
+.current__calc.active {
+  color: var(--color-black-text);
+  transition: all .5s;
+}
+
+.switch {
+  width: 6.6rem;
+  height: 3.6rem;
+  cursor: pointer;
+  border-radius: 1.8rem;
+  position: relative;
+  background-color: var(--color-white-text) !important;
+}
+
+.switch.active {
+  background-color: var(--color-dark-bg);
+  background-color: var(--color-white-bg);
+  outline: none;
+}
+
+.switch > input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--color-lightBlue-btn-hover);
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  transition: all .5s;
+  position: absolute;
+  top: 50%;
+  left: .4rem;
+  transform: translateY(-50%);
+}
+
+.switch.active > .slider {
+  left: 3.2rem;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 1.6rem;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+  padding: .8rem 2.2rem;
+  display: flex;
+}
+
+.btn__number {
+  color: var(--color-lightBlue-text);
+  background-color: var(--color-dark-btn-bg);
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+}
+
+.btn__Ac, .btn__delete {
+  background-color: var(--color-gray-btn-Bg);
+}
+
+.btn__Ac {
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+}
+
+.btn__remainder, .btn__multiply, .btn__minus, .btn__add, .btn__dot, .btn__equals {
+  color: var(--color-text-number);
+  background-color: var(--color-lightBlue-btn-bg);
+  font-size: 4.2rem;
+}
+
+.btn__remainder:hover, .btn__multiply:hover, .btn__minus:hover, .btn__add:hover, .btn__dot:hover, .btn__equals:hover {
+  color: var(--color-white-text);
+  background-color: var(--color-lightBlue-btn-hover);
+  transition: all .5s;
+}
+
+.btn__add {
+  grid-area: 3 / 4 / 5 / 5;
+}
+
+.btn__equals {
+  grid-area: 5 / 3 / 6 / 5;
+}
+
+.btn__Ac:hover, .btn__delete:hover > svg > path, .btn__number:hover {
+  color: var(--color-white-text);
+  fill: var(--color-white-text);
+  transition: all .5s;
+}
+
+.calc__btns > button:hover {
+  transition: all .5s;
+  transform: scale(1.04);
+}
+
+.calc__box {
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  display: flex;
+}
+
+.container {
+  background-color: var(--color-dark-bg);
+  width: 60rem;
+  border-radius: 4rem;
+  padding: 6rem 3.4rem 4rem;
+}
+
+.container.active {
+  background-color: var(--color-body-bg);
+  transition: all .4s;
+}
+
+.dispaly__calc {
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  display: flex;
+}
+
+.calc__btns {
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  display: grid;
+}
+
+.author {
+  background-color: var(--color-dark-bg);
+  height: 4rem;
+  width: 4rem;
+  padding: 1rem;
+}
+
+@media screen and (max-width: 468px) {
+  .calc__box {
+    padding: 1rem;
+  }
+
+  .container {
+    border-radius: 2rem;
+    padding: 5.2rem 2.4rem;
+  }
+
+  .calc__btns {
+    gap: 1rem;
+  }
+}
+
+/*# sourceMappingURL=index.858f64b5.css.map */
