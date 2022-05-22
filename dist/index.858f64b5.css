@@ -27,15 +27,22 @@ html {
 }
 
 body {
+  height: 100vh;
   font-family: var(--font-primary);
   background-color: var(--color-body-bg);
   font-style: normal;
   transition: all .4s;
+  position: relative;
   overflow: hidden;
 }
 
 body.active {
   background-color: var(--color-dark-bg);
+}
+
+a {
+  color: var(--color-lightBlue-text);
+  text-decoration: none;
 }
 
 .previous__calc {
@@ -151,12 +158,12 @@ body.active {
 }
 
 .calc__box {
-  height: 100vh;
   width: 100vw;
   justify-content: center;
   align-items: center;
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
+  overflow: hidden;
 }
 
 .container {
@@ -187,15 +194,23 @@ body.active {
 }
 
 .author {
+  text-align: center;
   background-color: var(--color-dark-bg);
-  height: 4rem;
-  width: 4rem;
+  width: 100%;
   padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.author > p {
+  color: var(--color-white-text);
+  font-size: 1.8rem;
 }
 
 @media screen and (max-width: 468px) {
   .calc__box {
-    padding: 1rem;
+    padding: 4rem 1rem;
   }
 
   .container {
