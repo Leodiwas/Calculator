@@ -5,7 +5,8 @@ export default class Calculator {
   _curCalc = document.querySelector(".current__calc");
   _prevCalc = document.querySelector(".previous__calc");
   _currentOperend;
-  _previousOperand;
+  _previousOperand = [];
+  _calcOperand = [];
 
   constructor() {
     this._toggleMode();
@@ -22,6 +23,8 @@ export default class Calculator {
 
       this._curCalc.textContent = 0;
       this._prevCalc.textContent = 0;
+      this._previousOperand = [];
+      this._calcOperand = [];
     });
   }
 
@@ -32,7 +35,7 @@ export default class Calculator {
       const delBtn = e.target.closest(".btn__delete");
       if (!delBtn) return;
 
-      if (this._curCalc.textContent >= 0) {
+      if (this._currentOperend) {
         this._curCalc.textContent = this._currentOperend.slice(0, -1);
         this._currentOperend = this._curCalc.textContent;
       }

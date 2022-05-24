@@ -569,21 +569,47 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _calculatorViewJs = require("./calculatorView.js");
 var _calculatorViewJsDefault = parcelHelpers.interopDefault(_calculatorViewJs);
+var _varJs = require("../var.js");
 class OperatorView extends _calculatorViewJsDefault.default {
+    constructor(){
+        super();
+        this.calcOperand();
+    }
     numberOperand() {
         this._parentEl.addEventListener("click", (e)=>{
             e.preventDefault();
-            const btnEl = e.target.closest(".btn__operator");
+            const btnEl = e.target.closest(".btn__number");
             if (!btnEl) return;
             if (this._curCalc.textContent === "0") this._curCalc.textContent = "";
             this._curCalc.textContent += btnEl.textContent;
             this._currentOperend = this._curCalc.textContent;
+            this._previousOperand.push(btnEl.textContent);
+            console.log(this._previousOperand);
+            _varJs.btnOperator.forEach((el)=>{
+                if (el.classList.contains("active")) {
+                    this._curCalc.textContent = "";
+                    this._curCalc.textContent += this._previousOperand.join("");
+                }
+            });
+        });
+    }
+    calcOperand() {
+        this._parentEl.addEventListener("click", (e)=>{
+            const calcBtn = e.target.closest(".btn__operator");
+            if (!calcBtn) return;
+            this._previousOperand.push(calcBtn.textContent);
+            this._calcOperand.push(this._curCalc.textContent);
+            console.log(this._calcOperand);
+            if (this._prevCalc.textContent === "0") this._prevCalc.textContent = "";
+            this._prevCalc.textContent += this._previousOperand.join("");
+            this._previousOperand = [];
+            calcBtn.classList.add("active");
         });
     }
 }
 exports.default = new OperatorView();
 
-},{"./calculatorView.js":"84LQr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"84LQr":[function(require,module,exports) {
+},{"./calculatorView.js":"84LQr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../var.js":"8Rqaw"}],"84LQr":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _varJs = require("../var.js");
@@ -592,7 +618,8 @@ class Calculator {
     _curCalc = document.querySelector(".current__calc");
     _prevCalc = document.querySelector(".previous__calc");
     _currentOperend;
-    _previousOperand;
+    _previousOperand = [];
+    _calcOperand = [];
     constructor(){
         this._toggleMode();
         this._clear();
@@ -605,6 +632,8 @@ class Calculator {
             if (!clearFieldBtn) return;
             this._curCalc.textContent = 0;
             this._prevCalc.textContent = 0;
+            this._previousOperand = [];
+            this._calcOperand = [];
         });
     }
     _delete() {
@@ -612,7 +641,7 @@ class Calculator {
             e.preventDefault();
             const delBtn = e.target.closest(".btn__delete");
             if (!delBtn) return;
-            if (this._curCalc.textContent >= 0) {
+            if (this._currentOperend) {
                 this._curCalc.textContent = this._currentOperend.slice(0, -1);
                 this._currentOperend = this._curCalc.textContent;
             }
@@ -649,10 +678,13 @@ parcelHelpers.export(exports, "toggleSwitch", ()=>toggleSwitch
 );
 parcelHelpers.export(exports, "btnNumber", ()=>btnNumber
 );
+parcelHelpers.export(exports, "btnOperator", ()=>btnOperator
+);
 const body = document.body;
 const calcContainer = document.querySelector(".container");
 const toggleSwitch = document.querySelector(".switch");
 const btnNumber = document.querySelectorAll(".btn__number");
+const btnOperator = document.querySelectorAll(".btn__operator");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["kSkIJ","3MmaE"], "3MmaE", "parcelRequireff1f")
 
