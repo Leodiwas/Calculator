@@ -2,9 +2,12 @@ import Calculator from "./calculatorView.js";
 import * as el from "../var.js";
 
 class OperatorView extends Calculator {
+  output;
+
   constructor() {
     super();
     this.calcOperand();
+    this.equalsOperand();
   }
 
   numberOperand() {
@@ -21,8 +24,6 @@ class OperatorView extends Calculator {
 
       this._previousOperand.push(btnEl.textContent);
 
-      console.log(this._previousOperand);
-
       el.btnOperator.forEach((el) => {
         if (el.classList.contains("active")) {
           this._curCalc.textContent = "";
@@ -38,15 +39,33 @@ class OperatorView extends Calculator {
       if (!calcBtn) return;
 
       this._previousOperand.push(calcBtn.textContent);
-      this._calcOperand.push(this._curCalc.textContent);
+      this._calcsOperand.push(this._curCalc.textContent);
 
-      console.log(this._calcOperand);
+      if (calcBtn.textContent !== "=")
+        this._calcsOperand.push(calcBtn.textContent);
 
       if (this._prevCalc.textContent === "0") this._prevCalc.textContent = "";
       this._prevCalc.textContent += this._previousOperand.join("");
       this._previousOperand = [];
 
       calcBtn.classList.add("active");
+    });
+  }
+
+  equalsOperand() {
+    this._parentEl.addEventListener("click", (e) => {
+      const equlasBtn = e.target.closest(".btn__equals");
+      if (!equlasBtn) return;
+
+      // Calculations
+      if (equlasBtn.textContent === "=") {
+        this.output = this._calcsOperand
+          .map((n) => Number(n))
+          .filter((n) => (typeof n === "number" ? n : "operator"))
+          .reduce((acc, val) => acc + val, 0);
+        this._curCalc.textContent = this.output;
+        console.log(this.output);
+      }
     });
   }
 }

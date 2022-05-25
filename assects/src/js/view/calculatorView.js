@@ -6,7 +6,7 @@ export default class Calculator {
   _prevCalc = document.querySelector(".previous__calc");
   _currentOperend;
   _previousOperand = [];
-  _calcOperand = [];
+  _calcsOperand = [];
 
   constructor() {
     this._toggleMode();
@@ -24,7 +24,7 @@ export default class Calculator {
       this._curCalc.textContent = 0;
       this._prevCalc.textContent = 0;
       this._previousOperand = [];
-      this._calcOperand = [];
+      this._calcsOperand = [];
     });
   }
 
