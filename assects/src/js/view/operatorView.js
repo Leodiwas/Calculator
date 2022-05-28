@@ -41,10 +41,8 @@ class OperatorView extends Calculator {
 
       this._calcsOperand.push(this._curCalc.textContent);
       this._calcsOperand.push(calcBtn.textContent);
-      s;
 
       this._previousOperand.push(calcBtn.textContent);
-      g;
 
       // console.log(
       //   typeof Math.abs(1 - this._calcsOperand.indexOf(calcBtn.textContent)) ===
