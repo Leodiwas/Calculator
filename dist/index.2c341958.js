@@ -571,7 +571,8 @@ var _calculatorViewJs = require("./calculatorView.js");
 var _calculatorViewJsDefault = parcelHelpers.interopDefault(_calculatorViewJs);
 var _varJs = require("../var.js");
 class OperatorView extends _calculatorViewJsDefault.default {
-    output;
+    _prevoutput;
+    _curOutput = 0;
     constructor(){
         super();
         this.calcOperand();
@@ -598,12 +599,25 @@ class OperatorView extends _calculatorViewJsDefault.default {
         this._parentEl.addEventListener("click", (e)=>{
             const calcBtn = e.target.closest(".btn__operator");
             if (!calcBtn) return;
-            this._previousOperand.push(calcBtn.textContent);
             this._calcsOperand.push(this._curCalc.textContent);
-            if (calcBtn.textContent !== "=") this._calcsOperand.push(calcBtn.textContent);
+            this._calcsOperand.push(calcBtn.textContent);
+            this._previousOperand.push(calcBtn.textContent);
+            // console.log(
+            //   typeof Math.abs(1 - this._calcsOperand.indexOf(calcBtn.textContent)) ===
+            //     "number"
+            // );
+            // console.log(
+            //   typeof Math.abs(1 - this._calcsOperand.indexOf(calcBtn.textContent))
+            // );
+            if (this._curOutput === +this._curCalc.textContent) {
+                this._prevCalc.textContent = "";
+                this._prevCalc.textContent = +this._curOutput;
+            }
             if (this._prevCalc.textContent === "0") this._prevCalc.textContent = "";
             this._prevCalc.textContent += this._previousOperand.join("");
             this._previousOperand = [];
+            _varJs.btnOperator.forEach((el)=>el.classList.remove("active")
+            );
             calcBtn.classList.add("active");
         });
     }
@@ -612,14 +626,10 @@ class OperatorView extends _calculatorViewJsDefault.default {
             const equlasBtn = e.target.closest(".btn__equals");
             if (!equlasBtn) return;
             // Calculations
-            if (equlasBtn.textContent === "=") {
-                this.output = this._calcsOperand.map((n)=>Number(n)
-                ).filter((n)=>typeof n === "number" ? n : "operator"
-                ).reduce((acc, val)=>acc + val
-                , 0);
-                this._curCalc.textContent = this.output;
-                console.log(this.output);
-            }
+            const output = this._calcsOperand.join("").slice(0, -1);
+            this._curCalc.textContent = eval(output);
+            this._calcsOperand = [];
+            this._curOutput = +this._curCalc.textContent;
         });
     }
 }
@@ -650,6 +660,7 @@ class Calculator {
             this._prevCalc.textContent = 0;
             this._previousOperand = [];
             this._calcsOperand = [];
+            this._clicked = 0;
         });
     }
     _delete() {
@@ -661,6 +672,7 @@ class Calculator {
                 this._curCalc.textContent = this._currentOperend.slice(0, -1);
                 this._currentOperend = this._curCalc.textContent;
             }
+            this._previousOperand = this._previousOperand.slice(0, -1);
             if (this._currentOperend === "") return this._curCalc.textContent = 0;
         });
     }

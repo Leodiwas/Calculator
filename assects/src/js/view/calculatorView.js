@@ -25,6 +25,7 @@ export default class Calculator {
       this._prevCalc.textContent = 0;
       this._previousOperand = [];
       this._calcsOperand = [];
+      this._clicked = 0;
     });
   }
 
@@ -39,6 +40,8 @@ export default class Calculator {
         this._curCalc.textContent = this._currentOperend.slice(0, -1);
         this._currentOperend = this._curCalc.textContent;
       }
+
+      this._previousOperand = this._previousOperand.slice(0, -1);
 
       if (this._currentOperend === "") return (this._curCalc.textContent = 0);
     });
