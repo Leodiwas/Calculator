@@ -40,7 +40,6 @@ body {
   font-family: var(--font-primary);
   background-color: var(--color-body-bg);
   font-style: normal;
-  overflow: hidden;
   transition: all 0.4s;
   position: relative;
 }

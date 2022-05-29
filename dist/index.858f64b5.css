@@ -33,7 +33,6 @@ body {
   font-style: normal;
   transition: all .4s;
   position: relative;
-  overflow: hidden;
 }
 
 body.active {
