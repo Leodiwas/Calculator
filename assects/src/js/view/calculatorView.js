@@ -44,6 +44,9 @@ export default class Calculator {
       this._previousOperand = this._previousOperand.slice(0, -1);
 
       if (this._currentOperend === "") return (this._curCalc.textContent = 0);
+
+      // remove class from all elements
+      el.btnOperator.forEach((el) => el.classList.remove("active"));
     });
   }
 

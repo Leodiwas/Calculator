@@ -209,17 +209,22 @@ a {
 }
 
 @media screen and (max-width: 468px) {
-  .calc__box {
-    padding: 4rem 1rem;
-  }
-
   .container {
     border-radius: 2rem;
     padding: 5.2rem 2.4rem;
   }
 
+  .calc__box {
+    height: 95vh;
+    padding: 2rem 1rem !important;
+  }
+
   .calc__btns {
     gap: 1rem;
+  }
+
+  .author {
+    padding: .6rem;
   }
 }
 

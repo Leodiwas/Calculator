@@ -571,16 +571,21 @@ var _calculatorViewJs = require("./calculatorView.js");
 var _calculatorViewJsDefault = parcelHelpers.interopDefault(_calculatorViewJs);
 var _varJs = require("../var.js");
 class OperatorView extends _calculatorViewJsDefault.default {
-    _prevoutput;
     _curOutput = 0;
     constructor(){
         super();
         this.calcOperand();
         this.equalsOperand();
     }
+    _removeActiveClass() {
+        // remove active class on all the operatos
+        return _varJs.btnOperator.forEach((el)=>el.classList.remove("active")
+        );
+    }
     numberOperand() {
         this._parentEl.addEventListener("click", (e)=>{
             e.preventDefault();
+            // btnEl = numbers (1,2,3...0)
             const btnEl = e.target.closest(".btn__number");
             if (!btnEl) return;
             if (this._curCalc.textContent === "0") this._curCalc.textContent = "";
@@ -588,27 +593,27 @@ class OperatorView extends _calculatorViewJsDefault.default {
             this._currentOperend = this._curCalc.textContent;
             this._previousOperand.push(btnEl.textContent);
             _varJs.btnOperator.forEach((el)=>{
+                // check if the element contains active class
                 if (el.classList.contains("active")) {
                     this._curCalc.textContent = "";
                     this._curCalc.textContent += this._previousOperand.join("");
                 }
             });
+            this._removeActiveClass();
         });
     }
     calcOperand() {
         this._parentEl.addEventListener("click", (e)=>{
+            e.preventDefault();
+            // calcBtn = operators (+,-,*,%,.)
             const calcBtn = e.target.closest(".btn__operator");
             if (!calcBtn) return;
-            this._calcsOperand.push(this._curCalc.textContent);
-            this._calcsOperand.push(calcBtn.textContent);
-            this._previousOperand.push(calcBtn.textContent);
-            // console.log(
-            //   typeof Math.abs(1 - this._calcsOperand.indexOf(calcBtn.textContent)) ===
-            //     "number"
-            // );
-            // console.log(
-            //   typeof Math.abs(1 - this._calcsOperand.indexOf(calcBtn.textContent))
-            // );
+            this._calcsOperand.push(Number(this._curCalc.textContent));
+            // same operator will not be added again
+            if (!calcBtn.classList.contains("active")) {
+                this._calcsOperand.push(calcBtn.textContent);
+                this._previousOperand.push(calcBtn.textContent);
+            } else this._calcsOperand.push(calcBtn.textContent);
             if (this._curOutput === +this._curCalc.textContent) {
                 this._prevCalc.textContent = "";
                 this._prevCalc.textContent = +this._curOutput;
@@ -616,8 +621,9 @@ class OperatorView extends _calculatorViewJsDefault.default {
             if (this._prevCalc.textContent === "0") this._prevCalc.textContent = "";
             this._prevCalc.textContent += this._previousOperand.join("");
             this._previousOperand = [];
-            _varJs.btnOperator.forEach((el)=>el.classList.remove("active")
-            );
+            // remove active class on all the operatos
+            this._removeActiveClass();
+            // add active class on the current operator
             calcBtn.classList.add("active");
         });
     }
@@ -626,8 +632,11 @@ class OperatorView extends _calculatorViewJsDefault.default {
             const equlasBtn = e.target.closest(".btn__equals");
             if (!equlasBtn) return;
             // Calculations
-            const output = this._calcsOperand.join("").slice(0, -1);
-            this._curCalc.textContent = eval(output);
+            console.log(this._calcsOperand);
+            const output = eval(this._calcsOperand.join("").slice(0, -1));
+            // check if the number contains decimal
+            if (output % 1 !== 0) this._curCalc.textContent = output.toFixed(2);
+            else this._curCalc.textContent = output;
             this._calcsOperand = [];
             this._curOutput = +this._curCalc.textContent;
         });
@@ -674,6 +683,9 @@ class Calculator {
             }
             this._previousOperand = this._previousOperand.slice(0, -1);
             if (this._currentOperend === "") return this._curCalc.textContent = 0;
+            // remove class from all elements
+            _varJs.btnOperator.forEach((el)=>el.classList.remove("active")
+            );
         });
     }
     // Switching Dark Mode

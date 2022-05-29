@@ -27,7 +27,7 @@
 80C:\Users\ACER\Documents\Projects\Calculator\node_modules\source-map\package.json132975637879300298 0
 120C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\source-map\parcel_sourcemap_wasm\dist-node\package.json132975637892245534 0
 77C:\Users\ACER\Documents\Projects\Calculator\node_modules\lmdb\dependencies\v8132975637889768850 1
-48C:\Users\ACER\Documents\Projects\Calculator\dist132980435235844486 1
+48C:\Users\ACER\Documents\Projects\Calculator\dist132982144958802769 1
 91C:\Users\ACER\Documents\Projects\Calculator\node_modules\type-fest\source\package-json.d.ts132975637885494555 0
 101C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\workers\src\process\ProcessWorker.js132975637885814127 0
 70C:\Users\ACER\Documents\Projects\Calculator\node_modules\color-convert132975637882498579 1
@@ -589,7 +589,7 @@
 77C:\Users\ACER\Documents\Projects\Calculator\node_modules\.bin\detect-libc.cmd132975637908112451 0
 109C:\Users\ACER\Documents\Projects\Calculator\node_modules\caniuse-lite\data\features\document-currentscript.js132975637892605063 0
 89C:\Users\ACER\Documents\Projects\Calculator\node_modules\postcss-value-parser\lib\unit.js132975637881976720 0
-69C:\Users\ACER\Documents\Projects\Calculator\assects\src\css\style.css132977095737202280 0
+69C:\Users\ACER\Documents\Projects\Calculator\assects\src\css\style.css132982140054791946 0
 74C:\Users\ACER\Documents\Projects\Calculator\node_modules\yaml\browser\dist132975637887332098 1
 105C:\Users\ACER\Documents\Projects\Calculator\node_modules\@babel\highlight\node_modules\has-flag\readme.md132975637881217740 0
 93C:\Users\ACER\Documents\Projects\Calculator\node_modules\caniuse-lite\data\features\webgl2.js132975637898996512 0
@@ -1090,7 +1090,7 @@
 104C:\Users\ACER\Documents\Projects\Calculator\node_modules\terser\node_modules\source-map\lib\array-set.js132975637882778184 0
 105C:\Users\ACER\Documents\Projects\Calculator\node_modules\terser\node_modules\source-map\lib\base64-vlq.js132975637883137724 0
 108C:\Users\ACER\Documents\Projects\Calculator\node_modules\terser\node_modules\source-map\lib\binary-search.js132975637883537177 0
-71C:\Users\ACER\Documents\Projects\Calculator\dist\index.858f64b5.css.map132979977666382732 0
+71C:\Users\ACER\Documents\Projects\Calculator\dist\index.858f64b5.css.map132982140055882499 0
 87C:\Users\ACER\Documents\Projects\Calculator\node_modules\@babel\code-frame\package.json132975637881257692 0
 105C:\Users\ACER\Documents\Projects\Calculator\node_modules\terser\node_modules\source-map\lib\mappings.wasm132975637883976581 0
 104C:\Users\ACER\Documents\Projects\Calculator\node_modules\terser\node_modules\source-map\lib\read-wasm.js132975637884216271 0
@@ -2271,7 +2271,7 @@
 88C:\Users\ACER\Documents\Projects\Calculator\node_modules\caniuse-lite\data\regions\ST.js132975637897798113 0
 101C:\Users\ACER\Documents\Projects\Calculator\node_modules\dom-serializer\lib\esm\foreignNames.d.ts.map132975637883137724 0
 95C:\Users\ACER\Documents\Projects\Calculator\node_modules\dom-serializer\lib\esm\foreignNames.js132975637880418804 0
-79C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\view\operatorView.js132980435356322212 0
+79C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\view\operatorView.js132982144957829341 0
 87C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\cache\lib\LMDBCache.js132975637883457291 0
 94C:\Users\ACER\Documents\Projects\Calculator\node_modules\dom-serializer\lib\esm\index.d.ts.map132975637883537177 0
 76C:\Users\ACER\Documents\Projects\Calculator\node_modules\css-tree\lib\syntax132975637888330780 1
@@ -3944,7 +3944,7 @@
 103C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\parcel\package.json132975637891486547 0
 122C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\library-custom-scopehoist\package.json132975637891446601 0
 127C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\invalid-target-source-not-file\src\index.js132975637888330780 0
-66C:\Users\ACER\Documents\Projects\Calculator\dist\index.2c341958.js132980435235824547 0
+66C:\Users\ACER\Documents\Projects\Calculator\dist\index.2c341958.js132982144958782828 0
 126C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\invalid-target-source-missing\package.json132975637891366710 0
 120C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\invalid-source-not-file\package.json132975637891326758 0
 120C:\Users\ACER\Documents\Projects\Calculator\node_modules\@parcel\core\test\fixtures\invalid-source-not-file\src\index.js132975637888290850 0
@@ -4078,10 +4078,10 @@
 70C:\Users\ACER\Documents\Projects\Calculator\node_modules\.bin\svgo.ps1132975637908152262 0
 72C:\Users\ACER\Documents\Projects\Calculator\node_modules\.bin\terser.cmd132975637908112451 0
 72C:\Users\ACER\Documents\Projects\Calculator\node_modules\.bin\terser.ps1132975637908112451 0
-70C:\Users\ACER\Documents\Projects\Calculator\dist\index.2c341958.js.map132980435235834519 0
-67C:\Users\ACER\Documents\Projects\Calculator\dist\index.858f64b5.css132979977666382732 0
+70C:\Users\ACER\Documents\Projects\Calculator\dist\index.2c341958.js.map132982144958802769 0
+67C:\Users\ACER\Documents\Projects\Calculator\dist\index.858f64b5.css132982140055862566 0
 70C:\Users\ACER\Documents\Projects\Calculator\dist\index.98d983b0.js.map132975642074360678 0
-59C:\Users\ACER\Documents\Projects\Calculator\dist\index.html132979977666422987 0
+59C:\Users\ACER\Documents\Projects\Calculator\dist\index.html132981909011773549 0
 72C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\controller.js132977095415698854 0
 65C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\var.js132977982862647847 0
-81C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\view\calculatorView.js132979947499771025 0
+81C:\Users\ACER\Documents\Projects\Calculator\assects\src\js\view\calculatorView.js132981895758575271 0
