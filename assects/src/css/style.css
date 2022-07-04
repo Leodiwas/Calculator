@@ -36,12 +36,12 @@ html {
 }
 
 body {
-  height: 100vh;
   font-family: var(--font-primary);
   background-color: var(--color-body-bg);
   font-style: normal;
   transition: all 0.4s;
   position: relative;
+  overflow: hidden;
 }
 
 body.active {
@@ -186,6 +186,7 @@ a {
 
 /* /////////////// Styling /////////////////// */
 .calc__box {
+  height: 90vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -225,9 +226,6 @@ a {
 /* ///////////////////  Author  ///////////////////// */
 
 .author {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   text-align: center;
   background-color: var(--color-dark-bg);
   padding: 1rem;
@@ -246,11 +244,16 @@ a {
     border-radius: 2rem;
   }
 
+  .calc__box {
+    height: 100vh;
+    margin-bottom: 0;
+  }
+
   .calc__btns {
     gap: 1rem;
   }
 
   .author {
-    padding: 0.4rem;
+    display: none;
   }
 }
